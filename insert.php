@@ -11,7 +11,7 @@ $puntos = recoge("puntos");
 $ismael=0;
 $bonet=0;
 
-#-----------------------------SQL------------------------------
+#-----------------------------SQL-------------------------
 $conn = mysqli_connect( 'db','isma','isma','pruebas');
 
 if ($nombre == 'Ismael') {
