@@ -13,4 +13,4 @@ CREATE TABLE usuarios (
 
 INSERT INTO usuarios (nombre) VALUES ('ismael');
 INSERT INTO usuarios (nombre) VALUES ('bonet');
-INSERT INTO usuarios (nombre) VALUES ('alex');
+INSERT INTO usuarios (nombre) VALUES ('alex')
