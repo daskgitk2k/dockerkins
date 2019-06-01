@@ -4,7 +4,6 @@ $user = 'isma';
 $password = 'isma';
 $db = 'pruebas';
 
-#Sustituir por un semáforo********************
 $conn = new mysqli($host,$user,$password,$db);
 if($conn->connect_error){
     print "<svg height='20' width='20' >";
