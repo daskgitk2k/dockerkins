@@ -1,6 +1,5 @@
 version: '3.3'
 services:
-#------------Apache PHP---------------------------------------
   web:
     build:
       context: ./php 
@@ -12,7 +11,7 @@ services:
       - ./php:/var/www/html/ 
     ports:
       - 8080:80 
-#------------MySQL---------------------------------------
+
   db:
     build: 
       context: ./mysql
