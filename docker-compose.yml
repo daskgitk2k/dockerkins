@@ -1,0 +1,49 @@
+version: '3.3'
+services:
+#------------Apache PHP---------------------------------------
+  web:
+    build:
+      context: ./php 
+      dockerfile: dockerfile.txt
+    container_name: php73
+    depends_on:
+      - db  
+    volumes:
+      - ./php:/var/www/html/ 
+    ports:
+      - 8080:80 
+#------------MySQL---------------------------------------
+  db:
+    build: 
+      context: ./mysql
+      dockerfile: dockerfile.txt
+    volumes:
+      - ./mysql:/home
+      - ./mysql/scripts:/docker-entrypoint-initdb.d
+    container_name: mysqli8
+    command: --default-authentication-plugin=mysql_native_password 
+    environment:
+      MYSQL_ROOT_PASSWORD: root #crea al usuario root
+      MYSQL_DATABASE: dockerkins #crea la base de datos dockerkins
+      MYSQL_USER: isma #crea al usuario isma con permisos sobre pruebas
+      MYSQL_PASSWORD: isma #crea una contraseña para el usuario isma
+    ports:
+      - 3306:3306
+#------------Portainer---------------------------------------
+  portainer:
+    image: portainer/portainer
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+    container_name: portainer
+    ports: 
+     - 9000:9000
+#------------Jenkins-----------------------------------------
+  jenkins:
+    build: # Hacemos esto por que la version da problemas, y de esta forma solucionamos el problema.
+      context: ./jenkins
+      dockerfile: dockerfile.txt
+    volumes:
+      - ./jenkins:/home
+    container_name: jenkins
+    ports: 
+    - 8081:8080
