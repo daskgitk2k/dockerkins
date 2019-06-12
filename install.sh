@@ -136,7 +136,7 @@ if  [ $DISTRO == Ubuntu  ]; then
 fi
 
 # if you like ansible to be chatty (for debugging purposes)
-#ansible_command+=" -vvv" # be very verbose
+#ansible_command+=" -vvv" # be very verbose0000
 
 echo "******* Starting ansible with $ansible_command"
 
