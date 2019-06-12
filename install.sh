@@ -33,7 +33,7 @@ read -p "But first please enter your user password: " -s USER_PASSWD
 echo ""
 
 # Install ssh software on a minimal system
-echo "******* First we make sure some essential software is installed"
+echo "******* First we make sure some essential software is installed"ññññ
 if  [ -z $SUDO_USER  ]; then # if SUDO_USER is set it means we're running on sudo
   apt-get update > /dev/null 2>&1 || { echo '*ERROR* You do not have sufficient privileges to continue.'; echo '******* Consider using sudo or become root' ; exit 1; }
   apt-get -y install sudo ssh sshpass > /dev/null 2>&1
